@@ -81,6 +81,21 @@
         .vibe-swiper { width: 100%; padding-bottom: 20px; overflow: hidden; }
         .vibe-swiper .swiper-slide { transition: transform 0.5s ease-in-out; }
         .vibe-swiper .swiper-slide-active { z-index: 10; }
+
+        /* Scroll Reveal Animations (Efek kemunculan elegan saat di-scroll) */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
     </style>
 </head>
 <body class="text-stone-100 antialiased overflow-x-hidden">
@@ -147,7 +162,7 @@
         <!-- Overlay for text legibility (Lebih gelap untuk mengimbangi kontras malam hari) -->
         <div class="absolute inset-0 bg-black/40 z-10"></div>
 
-        <!-- Block 1 Content (Ukuran diperkecil lagi dan diangkat ke atas untuk memberi jarak ekstra ke elemen bawah) -->
+        <!-- Block 1 Content -->
         <div class="relative z-20 h-full flex flex-col justify-center items-center px-4 text-center pb-24">
             <h1 class="text-lg md:text-2xl lg:text-[1.75rem] font-bation text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-nowrap justify-center items-center gap-2 md:gap-4 tracking-normal whitespace-nowrap">
                 <span>Renew</span>
@@ -175,8 +190,8 @@
         
         <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
             
-            <!-- Abstract Circular Wave Icon (Crisp SVG representation of the old logo) -->
-            <div class="mb-8 text-[#C5A880]">
+            <!-- Abstract Circular Wave Icon -->
+            <div class="mb-8 text-[#C5A880] reveal-element">
                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-700 hover:rotate-180">
                     <circle cx="30" cy="30" r="28" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.5"/>
                     <path d="M15 22 Q 22.5 14, 30 22 T 45 22" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
@@ -185,13 +200,13 @@
                 </svg>
             </div>
 
-            <!-- Title using Bation Font (Skala dipangkas drastis dan ditambahkan margin ekstra) -->
-            <h2 class="text-base md:text-xl lg:text-[1.5rem] font-bation text-white mb-10 md:mb-14 tracking-wide">
+            <!-- Title using Bation Font -->
+            <h2 class="text-base md:text-xl lg:text-[1.5rem] font-bation text-white mb-10 md:mb-14 tracking-wide reveal-element delay-100">
                 <span class="text-[#C5A880]">Xoleil</span> Spa Village
             </h2>
 
-            <!-- Paragraph Container with constrained width for better readability -->
-            <p class="text-sm md:text-[15px] text-white/70 leading-relaxed md:leading-loose font-light tracking-wide max-w-3xl">
+            <!-- Paragraph Container -->
+            <p class="text-sm md:text-[15px] text-white/70 leading-relaxed md:leading-loose font-light tracking-wide max-w-3xl reveal-element delay-200">
                 Today’s spa philosophy is moving towards prevention, rather than mere pampering. The focus has shifted from self-indulgence to a natural, spiritual, harmonious and necessary even for a restorative experience. Ancient therapeutic traditions of Asia view the body as capable of healing itself by treating the body, mind and spirit as fundamentally one — balancing the flow of ch’i. 
                 <br><br>
                 <span class="text-[#C5A880] font-medium uppercase tracking-widest text-[10px] mx-1">Xoleil Spa Village</span> treatments take you on an exotic journey across the rich heritage of etno-wellness traditions of Indonesia; the birthplace of countless natural beauty remedies, rituals and secrets.
@@ -202,8 +217,7 @@
     <!-- Block 3: Your Visit (Experiences) -->
     <section id="your-visit" class="relative bg-[#1a1a1a] py-24 md:py-32 px-6 lg:px-12">
         <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-            <!-- Title using Bation Font (Skala dipangkas drastis dan ditambahkan margin ekstra) -->
+        <div class="text-center max-w-3xl mx-auto mb-16 md:mb-24 reveal-element">
             <h2 class="text-base md:text-xl lg:text-[1.5rem] font-bation text-white mb-8 md:mb-12 tracking-wide">
                 Your <span class="text-[#C5A880]">Visit</span>
             </h2>
@@ -216,17 +230,17 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-[1600px] mx-auto">
             
             <!-- Column 1: Day Spa -->
-            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer">
+            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer reveal-element delay-100">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgXWk8xkOlD09toF2FeAsam6XWUaAkjrxcw-1RdLkYM7wzt0GpTGa7Ysr2MjI_RjgXQ6ebyEtiOg-dxOE3Ole_U2zzNKEOrQ2D9M8JgKsTy7xdPOZ7WYAd3iSIcs7rMC1rUppFEqE2YZLQ8CzYuc8g1VcHNLGRrVnQxOnv_DFde0TEykkSIenpbUK6/s1600/captiondf.jpg" alt="Day Spa Experience" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/80 backdrop-blur-[2px] opacity-0 group-hover:opacity-100"></div>
                 
-                <!-- Default State: Title at bottom -->
+                <!-- Default State -->
                 <div class="absolute inset-0 p-10 flex flex-col justify-end transition-opacity duration-500 group-hover:opacity-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                     <h3 class="text-2xl font-playfair text-white tracking-widest uppercase">Day Spa</h3>
                     <div class="w-12 h-[1px] bg-[#C5A880] mt-6 transition-all duration-500 group-hover:w-full"></div>
                 </div>
                 
-                <!-- Hover State: Text centered -->
+                <!-- Hover State -->
                 <div class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 class="text-xl md:text-2xl font-playfair text-[#C5A880] tracking-widest uppercase mb-6">Day Spa</h3>
                     <div class="w-8 h-[1px] bg-[#C5A880]/50 mb-6"></div>
@@ -237,17 +251,17 @@
             </div>
 
             <!-- Column 2: Villa & Spa -->
-            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer">
+            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer reveal-element delay-200">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifiHoT-dSYD8Lb8cnJafYfLfW0jeMQxMdwnTOjRSwtF_OwELSu9e16OiDXn16LDlViY7DTFRS0UmDaeGdK8MrbbGpIReh_ezRvw-jigcUeQyFy2Ux5rg1Lp8EPS32azOrLBYpAnbZPkM4RwrgjA63IiopRoyHsbca_2I7C7epsUoY-9PNGqhdqH2Ea/s1600/web.whatsapp%20%2866%29_upscayl_3x_digital-art-4x.png" alt="Villa and Spa Escape" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/80 backdrop-blur-[2px] opacity-0 group-hover:opacity-100"></div>
                 
-                <!-- Default State: Title at bottom -->
+                <!-- Default State -->
                 <div class="absolute inset-0 p-10 flex flex-col justify-end transition-opacity duration-500 group-hover:opacity-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                     <h3 class="text-2xl font-playfair text-white tracking-widest uppercase">Villa & Spa</h3>
-                    <div class="w-12 h-[1px] bg-[#C5A880] mt-6"></div>
+                    <div class="w-12 h-[1px] bg-[#C5A880] mt-6 transition-all duration-500 group-hover:w-full"></div>
                 </div>
                 
-                <!-- Hover State: Text centered -->
+                <!-- Hover State -->
                 <div class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 class="text-xl md:text-2xl font-playfair text-[#C5A880] tracking-widest uppercase mb-6">Villa & Spa</h3>
                     <div class="w-8 h-[1px] bg-[#C5A880]/50 mb-6"></div>
@@ -258,17 +272,17 @@
             </div>
 
             <!-- Column 3: Glass Sanctuary -->
-            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer">
+            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer reveal-element delay-300">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxvD2-nnzB_hiQp5qM47uaG2gNO-T70zwyNam9jeGSIiXkjNKAGKiCWDwZAOs22EaH6tO2QlI-Lw1ycYvHb6iXtd3l6FmPKZwTmXCJCo5S8AdvYzdowT3M1-L2Q39L4DcdaEwE6nwUsoHj5OOKBEwyhOisskP8iCqQdKJntsXHaQCn66-IkF7O8ooZ/s1600/e671b2bf-e7ce-47ca-89f1-025f2b4e28fa.jpg" alt="Glass Sanctuary Event" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/80 backdrop-blur-[2px] opacity-0 group-hover:opacity-100"></div>
                 
-                <!-- Default State: Title at bottom -->
+                <!-- Default State -->
                 <div class="absolute inset-0 p-10 flex flex-col justify-end transition-opacity duration-500 group-hover:opacity-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                     <h3 class="text-2xl font-playfair text-white tracking-widest uppercase">Glass Sanctuary</h3>
-                    <div class="w-12 h-[1px] bg-[#C5A880] mt-6"></div>
+                    <div class="w-12 h-[1px] bg-[#C5A880] mt-6 transition-all duration-500 group-hover:w-full"></div>
                 </div>
                 
-                <!-- Hover State: Text centered -->
+                <!-- Hover State -->
                 <div class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 class="text-xl md:text-2xl font-playfair text-[#C5A880] tracking-widest uppercase mb-6">Glass Sanctuary</h3>
                     <div class="w-8 h-[1px] bg-[#C5A880]/50 mb-6"></div>
@@ -279,22 +293,20 @@
             </div>
 
             <!-- Column 4: Bale Bali Restaurant -->
-            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer">
-                <!-- Visual Bale Bali aktual telah diperbarui sesuai aset Xoleil -->
+            <div class="group relative h-[450px] md:h-[550px] overflow-hidden cursor-pointer reveal-element delay-400">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbIGfMQwMZXLPnsVTFQHsGdGm0x0sbPFGai_dcMNsZafoUHoeBaVHL3DM5Tm8-L9RRKTqoKqCqgd5Lpwv5-UcXs9DfenyRY2SLBRcWEnxFBW__ZXCEqzaicaJWCguH_evisTVu_utZMfjGljLo8fIbSjac2YOb8i2nNHvqDbw7_PbAGBPwm09onNo-/s1600/caption%20%281%29dsfwe.jpg" alt="Bale Bali Restaurant" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/80 backdrop-blur-[2px] opacity-0 group-hover:opacity-100"></div>
                 
-                <!-- Default State: Title at bottom -->
+                <!-- Default State -->
                 <div class="absolute inset-0 p-8 lg:p-10 flex flex-col justify-end transition-opacity duration-500 group-hover:opacity-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                     <h3 class="text-xl lg:text-2xl font-playfair text-white tracking-widest uppercase">Bale Bali Restaurant</h3>
-                    <div class="w-12 h-[1px] bg-[#C5A880] mt-6"></div>
+                    <div class="w-12 h-[1px] bg-[#C5A880] mt-6 transition-all duration-500 group-hover:w-full"></div>
                 </div>
                 
-                <!-- Hover State: Text centered -->
+                <!-- Hover State -->
                 <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 class="text-lg lg:text-xl font-playfair text-[#C5A880] tracking-widest uppercase mb-6">Bale Bali Restaurant</h3>
                     <div class="w-8 h-[1px] bg-[#C5A880]/50 mb-6"></div>
-                    <!-- Copywriting yang telah direvisi ECA agar lebih sesuai dengan standar luxury hospitality -->
                     <p class="text-xs lg:text-sm text-white/90 leading-loose font-light tracking-wide">
                         This February, Chef Wayan introduces a curated new menu featuring signature cocktails and authentic Italian and Balinese recipes crafted with passion.
                     </p>
@@ -307,34 +319,39 @@
     <!-- Block 4: The Vibe (Carousel Gallery) -->
     <section id="the-vibe" class="relative bg-[#0a0a0a] py-16 md:py-24">
         
-        <div class="relative w-full group">
+        <div class="relative w-full group reveal-element">
             <!-- Swiper Carousel Container -->
             <div class="swiper vibe-swiper">
                 <div class="swiper-wrapper flex items-center">
                     
-                    <!-- Slide 1: Dining Vibe -->
+                    <!-- Slide 1: Caption 5 -->
                     <div class="swiper-slide w-[85vw] md:w-[60vw] h-[50vh] md:h-[75vh]">
-                        <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop" alt="Bale Bali Dining" class="w-full h-full object-cover rounded-sm shadow-2xl">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjA3GdPDLVQhSklfQ_qD-K0mu1HvgH_o4e46xvrLTYpI67_lWAfPakypIhzSaWnSE-Nej4iItEBP-R-wIcx6CR0mhktzF4yHUDRXjwJT0H6Z68XoZCeQPVuz0fInzLGY7H-NLzg5tDThBl029iU4fH8AkP2KfcHrvpknsNk5i60BLPq6l5MAeXEMzw3/s1600/caption%20%285%29.jpg" alt="Xoleil Sanctuary Detail 1" class="w-full h-full object-cover rounded-sm shadow-2xl">
                     </div>
                     
-                    <!-- Slide 2: Pool / Sanctuary Vibe -->
+                    <!-- Slide 2: Coming Soon Sanctuary 4 -->
                     <div class="swiper-slide w-[85vw] md:w-[60vw] h-[50vh] md:h-[75vh]">
-                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop" alt="Xoleil Pool Sanctuary" class="w-full h-full object-cover rounded-sm shadow-2xl">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6ys2Yf47KtOvrmITZPPzNCEnTt_4OXx42szRiRLBNIaoTwoKyRRTQoA3w1NgNmECAhLjAj0y1ps4J-ppdnuIRKeqLoXNCFlTlxXY4TlQba4BhZejAT8tzDArdi_2Dz8Hb3_pkCsd6wmMAKqU4WJVV2T8iu9Hwt9J4uq88nptxrhhzut1uDSe5cWoy/s1600/coming%20soon%20sanctuary%204.jpg" alt="Xoleil Sanctuary Detail 2" class="w-full h-full object-cover rounded-sm shadow-2xl">
                     </div>
                     
-                    <!-- Slide 3: Spa Details -->
+                    <!-- Slide 3: Coming Soon Sanctuary 5 -->
                     <div class="swiper-slide w-[85vw] md:w-[60vw] h-[50vh] md:h-[75vh]">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" alt="Spa and Wellness Rituals" class="w-full h-full object-cover rounded-sm shadow-2xl">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyCCDO1yJWMTr9b_ehqwPSjuWzF9EKZkXvnSZz5oifa4-L1nHNE1TWpJP5obTwZ7nwYu_m9Ue1deeVPZk7yMNwKoSxSPnkZQprST1PyYcCcWsqBydicGNl3YH4tLL0UeJYh0LpgkKg8IM4U9w2CZlo5Stl6OW6JUOHvYZ1eTbngzFvxzD-tpgq43Ik/s1600/coming%20soon%20sanctuary%205.jpg" alt="Xoleil Sanctuary Detail 3" class="w-full h-full object-cover rounded-sm shadow-2xl">
                     </div>
 
-                    <!-- Slide 4: Cocktails & Evening -->
+                    <!-- Slide 4: Bale Bali -->
                     <div class="swiper-slide w-[85vw] md:w-[60vw] h-[50vh] md:h-[75vh]">
-                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" alt="Signature Cocktails" class="w-full h-full object-cover rounded-sm shadow-2xl">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbIGfMQwMZXLPnsVTFQHsGdGm0x0sbPFGai_dcMNsZafoUHoeBaVHL3DM5Tm8-L9RRKTqoKqCqgd5Lpwv5-UcXs9DfenyRY2SLBRcWEnxFBW__ZXCEqzaicaJWCguH_evisTVu_utZMfjGljLo8fIbSjac2YOb8i2nNHvqDbw7_PbAGBPwm09onNo-/s1600/caption%20%281%29dsfwe.jpg" alt="Bale Bali Restaurant Vibe" class="w-full h-full object-cover rounded-sm shadow-2xl">
                     </div>
 
-                    <!-- Slide 5: Villa Interior -->
+                    <!-- Slide 5: Day Spa -->
                     <div class="swiper-slide w-[85vw] md:w-[60vw] h-[50vh] md:h-[75vh]">
-                        <img src="https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?q=80&w=2032&auto=format&fit=crop" alt="Villa Interior" class="w-full h-full object-cover rounded-sm shadow-2xl">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgXWk8xkOlD09toF2FeAsam6XWUaAkjrxcw-1RdLkYM7wzt0GpTGa7Ysr2MjI_RjgXQ6ebyEtiOg-dxOE3Ole_U2zzNKEOrQ2D9M8JgKsTy7xdPOZ7WYAd3iSIcs7rMC1rUppFEqE2YZLQ8CzYuc8g1VcHNLGRrVnQxOnv_DFde0TEykkSIenpbUK6/s1600/captiondf.jpg" alt="Day Spa Vibe" class="w-full h-full object-cover rounded-sm shadow-2xl">
+                    </div>
+
+                    <!-- Slide 6: Glass Sanctuary -->
+                    <div class="swiper-slide w-[85vw] md:w-[60vw] h-[50vh] md:h-[75vh]">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxvD2-nnzB_hiQp5qM47uaG2gNO-T70zwyNam9jeGSIiXkjNKAGKiCWDwZAOs22EaH6tO2QlI-Lw1ycYvHb6iXtd3l6FmPKZwTmXCJCo5S8AdvYzdowT3M1-L2Q39L4DcdaEwE6nwUsoHj5OOKBEwyhOisskP8iCqQdKJntsXHaQCn66-IkF7O8ooZ/s1600/e671b2bf-e7ce-47ca-89f1-025f2b4e28fa.jpg" alt="Glass Sanctuary Vibe" class="w-full h-full object-cover rounded-sm shadow-2xl">
                     </div>
 
                 </div>
@@ -403,6 +420,7 @@
         // Initialize Premium Swiper Carousel
         const vibeSwiper = new Swiper('.vibe-swiper', {
             loop: true, // Infinite looping
+            loopedSlides: 4, // Ensures enough slides are cloned so the left peek never goes empty
             centeredSlides: true, // Center the active slide
             slidesPerView: 'auto', // Adjust width based on CSS
             spaceBetween: 16, // Gap between slides (mobile)
@@ -417,6 +435,27 @@
                     spaceBetween: 32 // Larger gap on desktop
                 }
             }
+        });
+
+        // Intersection Observer for Scroll Reveal Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal-element');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Berhenti mengamati elemen setelah animasi berjalan satu kali agar tidak berulang
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15, // Memicu animasi saat 15% elemen sudah masuk ke dalam layar
+                rootMargin: "0px 0px -50px 0px" // Sedikit margin bawah agar animasi terasa lebih mulus dan natural
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
         });
     </script>
 </body>
